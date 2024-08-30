@@ -40,16 +40,11 @@ function App() {
     <>
       <Navbar heading="Text-Editor" mode = {mode} toggleMode={toggleMode} />
       <Alert alert = {alert}/>
-      <Router>
+      
       <Routes>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/">
-            <Textform heading="Enter your text here" mode = {mode} />
-          </Route>
-        </Routes>
-        </Router>
+          <Route path="/about" element={<About/>} />
+     </Routes>
+       
       {/* <Textform heading="Enter your text here" mode = {mode} /> */}
       {/* <About/> */}
       
