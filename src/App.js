@@ -3,8 +3,13 @@ import "./App.css";
 import Alert from "./components/Alert.js";
 import Navbar from "./components/Navbar.js";
 import Textform from "./components/Textform.js";
-// import Darkmode from './components/Darkmode.js';
+import About from './components/About.js';
 import React, {useState} from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode,setMode] = useState("light");
@@ -35,8 +40,19 @@ function App() {
     <>
       <Navbar heading="Text-Editor" mode = {mode} toggleMode={toggleMode} />
       <Alert alert = {alert}/>
-      <Textform heading="Enter your text here" mode = {mode} />
-      {/* <Darkmode/> */}
+      <Router>
+      <Routes>
+          <Route path="/about">
+            <About/>
+          </Route>
+          <Route path="/">
+            <Textform heading="Enter your text here" mode = {mode} />
+          </Route>
+        </Routes>
+        </Router>
+      {/* <Textform heading="Enter your text here" mode = {mode} /> */}
+      {/* <About/> */}
+      
     </>
   );
 }
