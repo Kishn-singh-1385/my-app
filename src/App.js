@@ -6,7 +6,6 @@ import Textform from "./components/Textform.js";
 import About from './components/About.js';
 import React, {useState} from 'react';
 import {
-  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -40,16 +39,13 @@ function App() {
     <>
       <Navbar heading="Text-Editor" mode = {mode} toggleMode={toggleMode} />
       <Alert alert = {alert}/>
-      <Router>
+      
       <Routes>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/">
-            <Textform heading="Enter your text here" mode = {mode} />
-          </Route>
-        </Routes>
-        </Router>
+      <Route path="/about" element={<About/>} />
+      <Route path="/" element={<Textform heading="Enter your text here" mode = {mode} />} />
+     </Routes>
+     
+      
       {/* <Textform heading="Enter your text here" mode = {mode} /> */}
       {/* <About/> */}
       
